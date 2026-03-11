@@ -17,8 +17,6 @@ UNDO_STROKE_STENO = '*'
 
 SUFFIX_KEYS = ()
 ORTHOGRAPHY_RULES = []
-# ORTHOGRAPHY_RULES_ALIASES: Dict[str, str]
-# ORTHOGRAPHY_WORDLIST: Optional[str]
 
 KEYMAPS = {
             "Gemini PR": {
