@@ -1,12 +1,12 @@
 KEYS = (
-        'k-',
-        'e', '*',
-        '-n'
+        'K-',
+        'E', '*',
+        '-N'
     )
 
 STENO_ORDER = KEYS
 
-IMPLICIT_HYPHEN_KEYS = ('e') 
+IMPLICIT_HYPHEN_KEYS = ('E') 
 
 NUMBER_KEY = None 
 NUMBERS = {}
@@ -28,10 +28,10 @@ KEYMAPS = {
             "Passport": {
                 },
             "Plover HID": {
-                'S1-' : 'k-',
-                'T-' : 'e',
+                'S1-' : 'K-',
+                'T-' : 'E-',
                 'P-' : '*',
-                'H-' : '-n',
+                'H-' : '-N',
                 },
             "Sentura": {
                 },
