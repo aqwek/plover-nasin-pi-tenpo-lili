@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+plover_nasin_pi_tenpo_lili/__init__.py
+plover_nasin_pi_tenpo_lili/system.py
+plover_nasin_pi_tenpo_lili.egg-info/PKG-INFO
+plover_nasin_pi_tenpo_lili.egg-info/SOURCES.txt
+plover_nasin_pi_tenpo_lili.egg-info/dependency_links.txt
+plover_nasin_pi_tenpo_lili.egg-info/entry_points.txt
+plover_nasin_pi_tenpo_lili.egg-info/requires.txt
+plover_nasin_pi_tenpo_lili.egg-info/top_level.txt
+plover_nasin_pi_tenpo_lili.egg-info/zip-safe
+plover_nasin_pi_tenpo_lili/dictionaries/nasin-pi-tenpo-lili-base.json

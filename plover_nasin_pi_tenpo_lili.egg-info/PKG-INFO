@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: plover-nasin-pi-tenpo-lili
+Version: 0.0.1
+Summary: Plover plugin to use nasin pi tenpo lili, a toki pona stenography theory.
+Home-page: https://github.com/aqwek/plover-nasin-pi-tenpo-lili
+Author: aqwek
+Keywords: plover plover_plugin
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: plover>=4.0.0.dev10
+Requires-Dist: plover-dict-commands
+Dynamic: license-file
