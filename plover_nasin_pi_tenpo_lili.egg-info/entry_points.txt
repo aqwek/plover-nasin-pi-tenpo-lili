@@ -1,2 +1,0 @@
-[plover.system]
-nasin pi tenpo lili = plover_nasin_pi_tenpo_lili.system
