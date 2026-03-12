@@ -5,8 +5,9 @@ KEYS = (
     )
 
 STENO_ORDER = KEYS
-
-IMPLICIT_HYPHEN_KEYS = ('e') 
+IMPLICIT_HYPHEN_KEYS = (
+        '1', '2', '*', '3', '4',
+    )
 
 NUMBER_KEY = None 
 NUMBERS = {}
