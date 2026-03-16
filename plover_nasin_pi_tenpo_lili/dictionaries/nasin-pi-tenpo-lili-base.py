@@ -25,10 +25,18 @@ INITIAL_BANK = {
         "n": "ni",
         "l": "lon",
         "j": "jan",
+        "ms": "kama",
+        "tk": "awen",
+        "pn": "tawa",
+        "lj": "weka",
+        "mstkpnlj": "kijetesantakalu",
         }
 
 MIDDLE_MODIFIERS = {
-
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
         }
 
 FINAL_BANK = {
@@ -40,6 +48,11 @@ FINAL_BANK = {
         "n": "ni",
         "l": "lon",
         "j": "jan",
+        "ms": "kama",
+        "tk": "awen",
+        "pn": "tawa",
+        "lj": "weka",
+        "ljpntkms": "kijetesantakalu",
         }
 
 POSTFINAL_MODIFIERS = {
@@ -63,18 +76,28 @@ def lookup(outline):
 
     if pre in PREINITIAL_MODIFIERS:
         phrase_parts.append(PREINITIAL_MODIFIERS[pre])
+    elif pre != "":
+        raise KeyError
 
     if init in INITIAL_BANK:
         phrase_parts.append(INITIAL_BANK[init])
+    elif init != "":
+        raise KeyError
 
     if mid in MIDDLE_MODIFIERS:
         phrase_parts.append(MIDDLE_MODIFIERS[mid])
+    elif mid != "" and mid != "-":
+        raise KeyError
 
     if final in FINAL_BANK:
         phrase_parts.append(FINAL_BANK[final])
+    elif final != "":
+        raise KeyError
 
     if post in POSTFINAL_MODIFIERS:
         phrase_parts.append(POSTFINAL_MODIFIERS[post])
+    elif post != "":
+        raise KeyError
 
     phrase = " ".join(phrase_parts)
 
