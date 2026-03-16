@@ -1,3 +1,5 @@
+import re
+
 # i know what this does :3
 LONGEST_KEY = 1
 
@@ -5,7 +7,7 @@ LONGEST_KEY = 1
 PARTS_MATCHER = re.compile(
         r'([12]*)'              # Preinitial modifiers
         r'([mstkpnlj]*)'        # Initial word bank
-        r'([12*34]*)'           # Middle modifiers
+        r'([12\*34]*|-)'        # Middle modifiers
         r'([ljpntkms]*)'        # Final word bank
         r'([12]*)'              # Postfinal modifiers
         )
@@ -35,12 +37,37 @@ POSTFINAL_MODIFIERS = {
 
 # all the stuff I know about
 def lookup(outline):
-    assert len(outline) == 1
-
     stroke = "".join(outline)
+    match = PARTS_MATCHER.fullmatch(stroke)
 
-    return "test"
+    if not match:
+        raise KeyError
 
+    pre, init, mid, final, post = match.groups()
+
+    phrase_parts = []
+
+    if pre in PREINITIAL_MODIFIERS:
+        phrase_parts.append(PREINITIAL_MODIFIERS[pre])
+
+    if init in INITIAL_BANK:
+        phrase_parts.append(INITIAL_BANK[init])
+
+    if mid in MIDDLE_MODIFIERS:
+        phrase_parts.append(MIDDLE_MODIFIERS[mid])
+
+    if final in FINAL_BANK:
+        phrase_parts.append(FINAL_BANK[final])
+
+    if post in POSTFINAL_MODIFIERS:
+        phrase_parts.append(POSTFINAL_MODIFIERS[post])
+
+    phrase = "".join(phrase_parts).strip()
+
+    if not phrase:
+        raise KeyError
+
+    return phrase
 
 def reverse_lookup(text):
     return []
