@@ -9,7 +9,7 @@ PARTS_MATCHER = re.compile(
         r'([mstkpnlj]*)'        # Initial word bank
         r'([12\*34]*|-)'        # Middle modifiers
         r'([ljpntkms]*)'        # Final word bank
-        r'([12]*)'              # Postfinal modifiers
+        r'([12]*)$'              # Postfinal modifiers
         )
 
 PREINITIAL_MODIFIERS = {
@@ -17,7 +17,14 @@ PREINITIAL_MODIFIERS = {
         }
 
 INITIAL_BANK = {
-        "m-": "mi",
+        "m": "mi",
+        "s": "sina",
+        "t": "toki",
+        "k": "ken",
+        "p": "pona",
+        "n": "ni",
+        "l": "lon",
+        "j": "jan",
         }
 
 MIDDLE_MODIFIERS = {
@@ -25,7 +32,14 @@ MIDDLE_MODIFIERS = {
         }
 
 FINAL_BANK = {
-        "-m": "mi",
+        "m": "mi",
+        "s": "sina",
+        "t": "toki",
+        "k": "ken",
+        "p": "pona",
+        "n": "ni",
+        "l": "lon",
+        "j": "jan",
         }
 
 POSTFINAL_MODIFIERS = {
@@ -62,7 +76,7 @@ def lookup(outline):
     if post in POSTFINAL_MODIFIERS:
         phrase_parts.append(POSTFINAL_MODIFIERS[post])
 
-    phrase = "".join(phrase_parts).strip()
+    phrase = " ".join(phrase_parts)
 
     if not phrase:
         raise KeyError
