@@ -2,16 +2,33 @@
 LONGEST_KEY = 1
 
 # phrasing crap I have no idea what I'm doing
+PARTS_MATCHER = re.compile(
+        r'([12]*)'              # Preinitial modifiers
+        r'([mstkpnlj]*)'        # Initial word bank
+        r'([12*34]*)'           # Middle modifiers
+        r'([ljpntkms]*)'        # Final word bank
+        r'([12]*)'              # Postfinal modifiers
+        )
 
+PREINITIAL_MODIFIERS = {
 
-INITIAL_WORDS = {
+        }
+
+INITIAL_BANK = {
         "m-": "mi",
         }
-FINAL_WORDS = {
+
+MIDDLE_MODIFIERS = {
+
+        }
+
+FINAL_BANK = {
         "-m": "mi",
         }
 
+POSTFINAL_MODIFIERS = {
 
+        }
 
 
 
@@ -20,11 +37,9 @@ FINAL_WORDS = {
 def lookup(outline):
     assert len(outline) == 1
 
-    stroke = outline[0]
-    if stroke == "m":
-        return "mi"
-    else:
-        raise KeyError
+    stroke = "".join(outline)
+
+    return "test"
 
 
 def reverse_lookup(text):
