@@ -5,11 +5,11 @@ LONGEST_KEY = 1
 
 # phrasing crap I have no idea what I'm doing
 PARTS_MATCHER = re.compile(
-        r'([12]*)'              # Preinitial modifiers
+        r'([AB]*)'              # Preinitial modifiers
         r'([mstkpnlj]*)'        # Initial word bank
         r'([12\*34]*|-)'        # Middle modifiers
         r'([ljpntkms]*)'        # Final word bank
-        r'([12]*)$'              # Postfinal modifiers
+        r'([CD]*)$'              # Postfinal modifiers
         )
 
 PREINITIAL_MODIFIERS = {
