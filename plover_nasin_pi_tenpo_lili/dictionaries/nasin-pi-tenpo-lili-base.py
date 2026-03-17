@@ -38,6 +38,8 @@ INITIAL_BANK = {
         "mk": "moku",
         "ml": "wile",
         "mstk": "suli",
+        "mtpl": "nimi",
+        "sknj": "nasin",
         "pnlj": "lili",
         "mstkpnlj": "kijetesantakalu",
         }
@@ -51,6 +53,7 @@ MODIFIER = {
         "13": "kin",
         "14": "anu",
         "23": "en",
+        "24": "taso",
         "34": "o",
         "123": "lon",
         "124": "CARTOUCHE!",
@@ -72,6 +75,7 @@ FINAL_BANK = {
         "tk": "awen",
         "pn": "tawa",
         "lj": "weka",
+        "ljpn": "lili",
         "ljpntkms": "kijetesantakalu",
         }
 
