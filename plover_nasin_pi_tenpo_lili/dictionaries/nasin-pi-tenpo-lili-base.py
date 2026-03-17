@@ -5,15 +5,15 @@ LONGEST_KEY = 1
 
 # phrasing crap I have no idea what I'm doing
 PARTS_MATCHER = re.compile(
-        r'([AB]*)'              # Preinitial modifiers
+        r'([<]*)'               # Preinitial modifier
         r'([mstkpnlj]*)'        # Initial word bank
-        r'([12\*34]*|-)'        # Middle modifiers
+        r'([12\*34]*|-)'        # Modifier
         r'([ljpntkms]*)'        # Final word bank
-        r'([CD]*)$'              # Postfinal modifiers
+        r'([>]*)$'              # Postfinal modifier
         )
 
-PREINITIAL_MODIFIERS = {
-
+PREINITIAL_MODIFIER = {
+        "<": "<",
         }
 
 INITIAL_BANK = {
@@ -29,14 +29,34 @@ INITIAL_BANK = {
         "tk": "awen",
         "pn": "tawa",
         "lj": "weka",
+        "sk": "sona",
+        "mt": "mute",
+        "tp": "tenpo",
+        "kn": "wile",
+        "pl": "pali",
+        "nj": "ona",
+        "mk": "moku",
+        "ml": "wile",
+        "mstk": "suli",
+        "pnlj": "lili",
         "mstkpnlj": "kijetesantakalu",
         }
 
-MIDDLE_MODIFIERS = {
-        "1": "1",
-        "2": "2",
-        "3": "3",
-        "4": "4",
+MODIFIER = {
+        "1": "li",
+        "2": "e",
+        "3": "pi",
+        "4": "la",
+        "12": "a",
+        "13": "kin",
+        "14": "anu",
+        "23": "en",
+        "34": "o",
+        "123": "lon",
+        "124": "CARTOUCHE!",
+        "134": "tan",
+        "234": "seme",
+        "1234": "ala",
         }
 
 FINAL_BANK = {
@@ -55,8 +75,8 @@ FINAL_BANK = {
         "ljpntkms": "kijetesantakalu",
         }
 
-POSTFINAL_MODIFIERS = {
-
+POSTFINAL_MODIFIER = {
+        ">": ">",
         }
 
 
@@ -71,35 +91,22 @@ def lookup(outline):
         raise KeyError
 
     pre, init, mid, final, post = match.groups()
+    
+    initial_word = INITIAL_BANK.get(init, "")
+    mod_word = MODIFIER.get(mid, "")
+    final_word = FINAL_BANK.get(final, "")
 
-    phrase_parts = []
 
-    if pre in PREINITIAL_MODIFIERS:
-        phrase_parts.append(PREINITIAL_MODIFIERS[pre])
-    elif pre != "":
-        raise KeyError
+    parts = []
+    
+    if pre == "<" and mod_word:
+        parts = [mod_word, initial_word, final_word]
+    elif post == ">" and mod_word:
+        parts = [initial_word, final_word, mod_word]
+    else:
+        parts = [initial_word, mod_word, final_word]
 
-    if init in INITIAL_BANK:
-        phrase_parts.append(INITIAL_BANK[init])
-    elif init != "":
-        raise KeyError
-
-    if mid in MIDDLE_MODIFIERS:
-        phrase_parts.append(MIDDLE_MODIFIERS[mid])
-    elif mid != "" and mid != "-":
-        raise KeyError
-
-    if final in FINAL_BANK:
-        phrase_parts.append(FINAL_BANK[final])
-    elif final != "":
-        raise KeyError
-
-    if post in POSTFINAL_MODIFIERS:
-        phrase_parts.append(POSTFINAL_MODIFIERS[post])
-    elif post != "":
-        raise KeyError
-
-    phrase = " ".join(phrase_parts)
+    phrase = " ".join(filter(None, parts))
 
     if not phrase:
         raise KeyError
