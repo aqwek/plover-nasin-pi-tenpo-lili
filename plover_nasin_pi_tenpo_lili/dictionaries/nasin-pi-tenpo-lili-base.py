@@ -1,9 +1,7 @@
 import re
 
-# i know what this does :3
 LONGEST_KEY = 1
 
-# phrasing crap I have no idea what I'm doing
 PARTS_MATCHER = re.compile(
         r'([<]*)'               # Preinitial modifier
         r'([mstkpnlj]*)'        # Initial word bank
@@ -11,7 +9,7 @@ PARTS_MATCHER = re.compile(
         r'([ljpntkms]*)'        # Final word bank
         r'([>]*)$'              # Postfinal modifier
         )
-
+# Defining dictionary
 PREINITIAL_MODIFIER = {
         "<": "<",
         }
@@ -37,6 +35,24 @@ INITIAL_BANK = {
         "nj": "ona",
         "mk": "moku",
         "ml": "wile",
+        "pj": "pali",
+        "mn": "ma",
+        "mp": "musi",
+        "sl": "ike",
+        "st": "sitelen",
+        "sp": "ale",
+        "kn": "kepeken",
+        "tl": "ilo",
+        "tn": "tomo",
+        "kl": "lukin",
+        "nl": "ante",
+        "kj": "ijo",
+        "mj": "mu",
+        "sn": "sama",
+        "tj": "tu",
+        "kp": "pana",
+        "sj": "soweli",
+        "skn": "n",
         "mstk": "suli",
         "mtpl": "nimi",
         "sknj": "nasin",
@@ -61,23 +77,15 @@ MODIFIER = {
         "234": "seme",
         "1234": "ala",
         }
+# Mirror Final Bank so I don't have to add every entry manually 
 
-FINAL_BANK = {
-        "m": "mi",
-        "s": "sina",
-        "t": "toki",
-        "k": "ken",
-        "p": "pona",
-        "n": "ni",
-        "l": "lon",
-        "j": "jan",
-        "ms": "kama",
-        "tk": "awen",
-        "pn": "tawa",
-        "lj": "weka",
-        "ljpn": "lili",
-        "ljpntkms": "kijetesantakalu",
-        }
+def mirror_order(stroke):
+    return "".join(sorted(stroke, key=lambda x: "ljpntkms".index(x)))
+
+FINAL_BANK = {mirror_order(k): v for k, v in INITIAL_BANK.items()}
+
+print(FINAL_BANK)
+
 
 POSTFINAL_MODIFIER = {
         ">": ">",
