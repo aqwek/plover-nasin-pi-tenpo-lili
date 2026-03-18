@@ -31,7 +31,7 @@ INITIAL_BANK = {
         "mt": "mute",
         "tp": "tenpo",
         "kn": "wile",
-        "pl": "pali",
+        "pl": "pilin",
         "nj": "ona",
         "mk": "moku",
         "ml": "wile",
