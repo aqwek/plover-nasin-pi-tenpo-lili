@@ -57,6 +57,8 @@ INITIAL_BANK = {
         "mtpl": "nimi",
         "sknj": "nasin",
         "pnlj": "lili",
+        "stpj": "anu",
+        "mknl": "seme",
         "mstkpnlj": "kijetesantakalu",
         }
 
@@ -107,7 +109,15 @@ def lookup(outline):
     initial_word = INITIAL_BANK.get(init, "")
     mod_word = MODIFIER.get(mid, "")
     final_word = FINAL_BANK.get(final, "")
+    
+    if init != "" and not initial_word:
+        raise KeyError
 
+    if mid != "" and not mod_word:
+        raise KeyError
+
+    if final != "" and not final_word:
+        raise KeyError
 
     parts = []
     
