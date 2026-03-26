@@ -113,7 +113,7 @@ def lookup(outline):
     if init != "" and not initial_word:
         raise KeyError
 
-    if mid != "" and not mod_word:
+    if mid != "" and mid != "-" and not mod_word:
         raise KeyError
 
     if final != "" and not final_word:
