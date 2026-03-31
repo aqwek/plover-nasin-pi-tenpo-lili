@@ -1,3 +1,13 @@
 {
-"mstkpnlj12": "{PLOVER:SWITCH_SYSTEM:Lapwing}"
+"mstkpnlj12": "{PLOVER:SWITCH_SYSTEM:Lapwing}",
+"st1*n": "{#Shift_L(tab)}",
+"tk4p": "{PLOVER:ADD_TRANSLATION}",
+"tk-ts": "{^}",
+"tp-pt": "{^.}",
+"tp-nk": "{^!}",
+"t1*n": "{#tab}",
+"kn-nk": "{^,}",
+"plj4p": "{PLOVER:LOOKUP}",
+"l-l": "{^?}",
+"j-j": "{#return}"
 }
