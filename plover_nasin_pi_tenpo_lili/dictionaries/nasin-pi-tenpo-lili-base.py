@@ -208,5 +208,40 @@ def lookup(outline):
 
     return phrase
 
+REVERSE_MAP = None
+
+
+def build_reverse_map():
+    global REVERSE_MAP
+    REVERSE_MAP = {}
+
+    inits = list(INITIAL_BANK.keys()) + [""]
+    mids = list(MODIFIER.keys()) + [""]
+    finals = list(FINAL_BANK.keys()) + [""]
+    pres = ["<", ""]
+    posts = [">", ""]
+
+    for pr in pres:
+        for i in inits:
+            for m in mids:
+                for f in finals:
+                    for po in posts:
+                        stroke = f"{pr}{i}{m}{f}{po}"
+                        try:
+                            result = lookup([stroke])
+                            if result not in REVERSE_MAP:
+                                REVERSE_MAP[result] = []
+                            
+                            stroke = (stroke,)
+
+                            if [stroke] not in REVERSE_MAP[result]:
+                                REVERSE_MAP[result].append(stroke)
+                        except KeyError:
+                            continue
+
 def reverse_lookup(text):
-    return []
+    global REVERSE_MAP
+    if REVERSE_MAP is None:
+        build_reverse_map()
+
+    return REVERSE_MAP.get(text, [])
